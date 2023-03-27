@@ -23,12 +23,14 @@
 | Column                     | Type          | Options                       | 
 | -------------------------- | ------------- | ----------------------------  | 
 | item_name                  | string        | null: false                   | 
+| description                | text          | null: false
 | category_id                | integer       | null: false                   | 
 | status_id                  | integer       | null: false                   | 
 | shipping_charge_id         | integer       | null: false                   | 
 | delivery_area_id           | integer       | null: false                   | 
 | estimated_delivery_date_id | integer       | null: false                   | 
-| user_id                    | references    | null: false, foreign_key:true | 
+| price                      | integer       | null: false
+| user                       | references    | null: false, foreign_key:true | 
 
 ###### Association
 
@@ -39,8 +41,8 @@
 
 | Column  | Type       | Options                       | 
 | ------- | ---------- | ----------------------------- | 
-| user_id | references | null: false, foreign_key:true | 
-| item_id | references | null: false, foreign_key:true | 
+| user | references | null: false, foreign_key:true | 
+| item | references | null: false, foreign_key:true | 
 
 ###### Association
 
@@ -50,15 +52,15 @@
 
 ## shipping_addresses テーブル
 
-| Column             | Type       | Options                       | 
-| ------------------ | ---------- | ----------------------------- | 
-| post_code          | string     | null: false                   | 
-| delivery_area_id   | integer    | null: false                   | 
-| municipality       | string     | null: false                   | 
-| address            | string     | null: false                   | 
-| building_name      | string     |                               | 
-| room_number        | string     | null: false                   | 
-| purchase_record_id | references | null: false, foreign_key:true | 
+| Column          | Type       | Options                       | 
+| --------------- | ---------- | ----------------------------- | 
+| post_code       | string     | null: false                   | 
+| delivery_area_id| integer    | null: false                   | 
+| municipality    | string     | null: false                   | 
+| address         | string     | null: false                   | 
+| building_name   | string     |                               | 
+| room_number     | string     | null: false                   | 
+| purchase_record | references | null: false, foreign_key:true | 
 
 ###### Association
 
