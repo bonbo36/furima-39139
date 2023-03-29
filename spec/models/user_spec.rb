@@ -123,42 +123,5 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
     end
-  end
-
-  describe 'ログイン' do
-    context 'ログインできるとき' do
-      it 'emailとパスワードが存在すればログインできる' do
-        expect(@user).to be_valid
-      end
-    end
-    context 'ログインできないとき' do
-      it 'emailが空ではログインできない' do
-        @user.email = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
-      end
-      it 'emailは@を含まないとログインできない' do
-        @user.email = 'testmail'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Email is invalid')
-      end
-      it 'passwordが空ではログインできない' do
-        @user.password = ''
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")
-      end
-      it 'passwordが5文字以下ではログインできない' do
-        @user.password = '00000'
-        @user.password_confirmation = '00000'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
-      end
-      it 'passwordが129文字以上ではログインできない' do
-        @user.password = Faker::Internet.password(min_length: 129)
-        @user.password_confirmation = @user.password
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
-      end
-    end
-  end
+  end 
 end
