@@ -123,5 +123,5 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
     end
-  end 
+  end
 end
