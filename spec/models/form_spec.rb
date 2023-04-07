@@ -60,8 +60,13 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include("Room number can't be blank")
       end
-      it '電話番号が10桁もしくは11桁でないと購入できない' do
+      it '電話番号が9桁以下だと購入できない' do
         @form.room_number = "000000000"
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Room number is invalid")
+      end
+      it '電話番号が12桁以上だと購入できない' do
+        @form.room_number = "000000000000"
         @form.valid?
         expect(@form.errors.full_messages).to include("Room number is invalid")
       end
