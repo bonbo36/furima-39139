@@ -18,7 +18,6 @@ RSpec.describe Form, type: :model do
         expect(@form).to be_valid
       end
     end
-  end
 
     context '購入できないとき' do
       it 'user_idがないと購入できない' do
@@ -71,5 +70,11 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include("Room number is invalid")
       end
+      it "tokenが空では購入できない" do
+        @form.token = nil
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Token can't be blank")
+      end
     end
+  end
 end
