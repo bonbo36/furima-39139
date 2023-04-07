@@ -45,6 +45,11 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include("Delivery area can't be blank")
       end
+      it 'delivery_area_idが---のとき購入できない' do
+        @form.delivery_area_id = 1
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Delivery area can't be blank")
+      end
       it '市区町村がないと購入できない' do
         @form.municipality = nil
         @form.valid?
