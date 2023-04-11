@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+
+      item:
+        image: 画像
+        item_name: 商品名
+        description: 商品の説明
+        price: 販売価格
+        category_id: カテゴリー
+        delivery_area_id: 都道府県
+        estimated_delivery_date_id: 発送までの日数
+        shipping_charge_id: 配送料負担
+        status_id: 商品の状態
+
+  activemodel:
+    attributes:
+      form:
+        post_code: 郵便番号
+        municipality: 市区町村
+        address: 番地
+        room_number: 電話番号
+        token: カード情報
+        delivery_area_id: 都道府県
+

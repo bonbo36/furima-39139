@@ -15,9 +15,9 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :delivery_area_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :estimated_delivery_date_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_charge_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :category_id, presence: true, numericality: { other_than: 1, message: "を入力してください。" }
+  validates :delivery_area_id, presence: true, numericality: { other_than: 1, message: "を入力してください。" }
+  validates :estimated_delivery_date_id, presence: true, numericality: { other_than: 1, message: "を入力してください。" }
+  validates :shipping_charge_id, presence: true, numericality: { other_than: 1, message: "を入力してください。" }
+  validates :status_id, presence: true, numericality: { other_than: 1, message: "を入力してください。" }
 end
